@@ -1,0 +1,8 @@
+# Python
+venv/
+.venv/
+__pycache__/
+blueprint/__init__.pyc
+
+# IDE
+.vscode/

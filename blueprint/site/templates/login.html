@@ -1,0 +1,39 @@
+{% from '_render_field.html' import render_field %}
+
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<b>
+    <a href="{{ url_for ('site.registro')}}">Registro</a>
+
+
+    <h1>Prencha o formulario de login</h1>
+    <form method='POST' action="{{ url_for('site.login') }}">
+        {{ formulario.csrf_token}}
+
+        {{ render_field(formulario.usuario )}}
+
+        {{ render_field(formulario.senha )}}
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                    {% for message in messages %}
+                    <h3 style='color: red'>{{ message }}</h3>
+                    {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {{ formulario.recaptcha}}
+
+        <input type="submit" value="Enviar">
+
+        
+
+    </form>
+</b>
+
+</html>
+
